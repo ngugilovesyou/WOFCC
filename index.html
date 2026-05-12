@@ -288,7 +288,7 @@
     border: 1px solid rgba(255,255,255,0.15);
   }
   .hero-card h3 { color: var(--gold-light); font-size: 15px; margin-bottom: 20px; letter-spacing: 1px; }
-  .intake-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .intake-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.9); }
   .intake-dot { width: 10px; height: 10px; border-radius: 10px; background: var(--gold); margin-top: 6px; }
   .intake-dot.open { background: #4ade80; }
   .hero-card .cta-link {
@@ -320,6 +320,7 @@
     text-decoration: none;
     border-right: 1px solid rgba(255,255,255,0.08);
     transition: 0.2s;
+    color:white;
   }
   .ql-item:last-child { border-right: none; }
   .ql-item:hover { background: rgba(255,255,255,0.05); }
@@ -411,7 +412,7 @@
   .course-card:hover { transform: translateY(-5px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1); }
   .course-thumb { height: 120px; display: flex; align-items: center; justify-content: center; }
   .testimonials { background: var(--navy); }
-  .testimonials .section-title, .testimonials .section-label { color: white; }
+  .testimonials .section-title, .testimonials .section-label { color: var(--gold); }
   .testimonials .section-sub { color: rgba(255,255,255,0.7); }
   .testi-card { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.9); }
   .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 12px; }
@@ -450,10 +451,408 @@
   @media (max-width: 640px) {
     .topbar-inner { flex-direction: column; align-items: flex-start; }
     .ql-grid { grid-template-columns: 1fr; }
-    .ql-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .ql-item { border-right: none; border-bottom: 1px solid rgb(255, 254, 254); }
   }
-  .stat-item .lbl { font-size: 12px; text-transform: uppercase; color: rgba(255,255,255,0.9); }
+  .stat-item .lbl { font-size: 12px; text-transform: uppercase; color: white; }
   .footer-contact-item svg { width: 16px; margin-right: 8px; }
+
+
+
+   /* Courses Section Specific Styles */
+  .courses-section {
+    padding: 80px 0;
+    background: var(--white);
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    gap: 20px;
+  }
+  
+  .section-header-left {
+    flex: 1;
+  }
+  
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: inline-block;
+    margin-bottom: 12px;
+    background: var(--gold-pale);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  
+  .section-description {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 500px;
+    line-height: 1.6;
+  }
+  
+  .btn-view-all {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 24px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  
+  .btn-view-all:hover {
+    background: var(--gold);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+  
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  
+  .course-card {
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  }
+  
+  .course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -12px rgba(15,42,92,0.15);
+    border-color: var(--gold-light);
+  }
+  
+  .course-thumb {
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .course-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  .course-card:hover .course-thumb img {
+    transform: scale(1.05);
+  }
+  
+  .course-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+    pointer-events: none;
+  }
+  
+  .course-thumb-icon {
+    font-size: 48px;
+    background: rgba(255,255,255,0.9);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .course-body {
+    padding: 20px 20px 24px;
+  }
+  
+  .course-body h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  
+  .course-body p {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  
+  .course-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: 4px;
+  }
+  
+  .course-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  /* Extra departments card */
+  .course-card-extra {
+    background: var(--cream);
+    border: 2px dashed var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .course-card-extra .course-thumb {
+    background: transparent;
+    height: 140px;
+  }
+  
+  .course-card-extra .course-thumb-icon {
+    background: var(--white);
+    border: 2px solid var(--gold);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  
+  .course-card-extra .course-body h3 {
+    color: var(--navy);
+  }
+  
+  .explore-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;
+  }
+  
+  .explore-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 950px) {
+    .courses-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .courses-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .btn-view-all {
+      align-self: flex-start;
+    }
+    
+    .course-thumb {
+      height: 140px;
+    }
+  }
+
+  /* Campus Image Showcase - Professional & Clean */
+  .campus-showcase {
+    margin-top: 48px;
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .campus-showcase:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 40px -14px rgba(15, 42, 92, 0.2);
+  }
+  
+  .campus-image {
+    width: 100%;
+    height: 360px;
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+  
+  /* Overlay gradient for better text contrast */
+  .campus-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, 
+      rgba(15, 42, 92, 0.75) 0%, 
+      rgba(15, 42, 92, 0.2) 40%,
+      transparent 70%);
+    pointer-events: none;
+  }
+  
+  /* Caption overlay */
+  .campus-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 28px 20px;
+    color: white;
+    z-index: 2;
+    transform: translateY(0);
+    transition: transform 0.2s ease;
+  }
+  
+  .campus-caption h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+  }
+  
+  .campus-caption p {
+    font-size: 13px;
+    opacity: 0.9;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .campus-caption p::before {
+    content: '📍';
+    font-size: 12px;
+    opacity: 0.9;
+  }
+  
+  /* Badge on corner */
+  .campus-badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: rgba(200, 155, 42, 0.9);
+    backdrop-filter: blur(4px);
+    padding: 6px 14px;
+    border-radius: 40px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Lightbox / zoom effect (optional click) */
+  .campus-showcase {
+    cursor: pointer;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .campus-image {
+      height: 280px;
+      background-position: center 35%;
+    }
+    
+    .campus-caption {
+      padding: 18px 20px 16px;
+    }
+    
+    .campus-caption h4 {
+      font-size: 18px;
+    }
+    
+    .campus-caption p {
+      font-size: 11px;
+    }
+    
+    .campus-badge {
+      top: 12px;
+      right: 12px;
+      padding: 4px 10px;
+      font-size: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .campus-image {
+      height: 220px;
+    }
+    
+    .campus-caption {
+      padding: 14px 16px 12px;
+    }
+    
+    .campus-caption h4 {
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+  }
+  
+  /* Optional zoom-in effect on hover */
+  .campus-image {
+    transition: transform 0.4s ease;
+  }
+  
+  .campus-showcase:hover .campus-image {
+    transform: scale(1.02);
+  }
+  
+  .campus-showcase:hover .campus-image::after {
+    background: linear-gradient(to top, 
+      rgba(15, 42, 92, 0.85) 0%, 
+      rgba(15, 42, 92, 0.25) 45%,
+      transparent 75%);
+  }
 </style>
 </head>
 <body>
@@ -562,22 +961,131 @@
         <div class="quote-sig" style="margin-top:28px; display:flex; align-items:center; gap:12px;"><div style="width:40px; height:2px; background:var(--gold);"></div><span style="font-weight:600;">Rev. Dr. Samuel Nduati, Principal</span></div>
       </div>
     </div>
-    <!-- Real campus image hint: replace with actual photo -->
-    <div class="campus-preview" style="margin-top: 40px; background-image: url('https://placehold.co/1200x400/e9e5da/c89b2a?text=Campus+Grounds+-+Kiambu');"></div>
+   <div class="campus-showcase">
+  <div class="campus-image" style="background-image: url('https://imgs.search.brave.com/Kj8sWVwdMJNUZ263UQgiiHjicxGhJxZP1Fbvh48kMyo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjIy/MDQ5NjEyMi9waG90/by9tdWx0aXJhY2lh/bC11bml2ZXJzaXR5/LXN0dWRlbnRzLXN0/dWR5aW5nLXRvZ2V0/aGVyLW9uLWNhbXB1/cy1sYXduLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1GNGls/czFCZG95NTBfaUty/Z0pFWkxjNVluYlFL/RndMOG15ZW9qeUE1/UkVzPQ');">
+    <div class="campus-badge">📸 Our Campus</div>
+    <div class="campus-caption">
+      <h4>Kiambu Main Campus</h4>
+      <p>Modern learning facilities, practical workshops, and a serene environment for holistic education</p>
+    </div>
+  </div>
+</div>
+
+<!-- Optional: If you want to add a small gallery caption under the image -->
+<div style="text-align: center; margin-top: 12px;">
+  <span style="font-size: 12px; color: var(--text-muted); background: var(--gold-pale); padding: 4px 12px; border-radius: 20px;">
+    🏛️ State-of-the-art automotive labs | ICT hubs | counselling training rooms
+  </span>
+</div>
+
   </div>
 </section>
 
 <!-- COURSES SECTION -->
-<section>
+<section class="courses-section">
   <div class="container">
-    <div style="display:flex; justify-content:space-between; flex-wrap:wrap; margin-bottom:48px;"><div><span class="section-label">Departments</span><h2 class="section-title">Our Training Programmes</h2><p>Nine departments offering certificate, diploma, and short courses aligned with Kenya's skills demand.</p></div><a href="#" class="btn-navy">View All →</a></div>
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-label">Academic Departments</span>
+        <h2 class="section-title">Our Training Programmes</h2>
+        <p class="section-description">Nine departments offering certificate, diploma, and short courses aligned with Kenya's skills demand and industry needs.</p>
+      </div>
+      <a href="#" class="btn-view-all">
+        View All Programmes 
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 12l4-4-4-4"/></svg>
+      </a>
+    </div>
+    
     <div class="courses-grid">
-      <div class="course-card"><div class="course-thumb" style="background:#0f2a5c;">🔧</div><div class="course-body"><h3>Automotive Engineering</h3><p>Hands-on vehicle mechanics, diagnostics, and modern garage tech.</p><div class="course-meta">📅 1–2 Years | Jan/Sept</div></div></div>
-      <div class="course-card"><div class="course-thumb" style="background:#1a6b3c;">💻</div><div class="course-body"><h3>ICT & Computing</h3><p>Networking, software, digital skills for the knowledge economy.</p><div class="course-meta">📅 1–2 Years | Jan/Sept</div></div></div>
-      <div class="course-card"><div class="course-thumb" style="background:#7c3a8c;">🧠</div><div class="course-body"><h3>Counselling Psychology</h3><p>Professional counselling for schools, hospitals & faith organizations.</p><div class="course-meta">📅 1–2 Years | Jan/Sept</div></div></div>
-      <div class="course-card"><div class="course-thumb" style="background:#c89b2a;">🏨</div><div class="course-body"><h3>Hospitality & Tourism</h3><p>Hotel management, food production & customer service.</p><div class="course-meta">📅 1–2 Years | Jan/Sept</div></div></div>
-      <div class="course-card"><div class="course-thumb" style="background:#b5365a;">👗</div><div class="course-body"><h3>Fashion & Design</h3><p>Garment construction, textile science & fashion business.</p><div class="course-meta">📅 1–2 Years | Jan/Sept</div></div></div>
-      <div class="course-card" style="border:2px dashed var(--border);"><div class="course-thumb" style="background:var(--cream);">➕</div><div class="course-body"><h3>+ 4 More Departments</h3><p>Cosmetology, Metalwork, Caregiver, Christian Ministry & short courses.</p><div class="course-meta">🎓 Explore all →</div></div></div>
+      <!-- Automotive Engineering -->
+      <div class="course-card">
+        <div class="course-thumb" style="background: linear-gradient(135deg, #0f2a5c, #1b3a6b);">
+          <img src="https://imgs.search.brave.com/3gqEOceOGgMSW51nsdyTdJ-Wty9sszuFCzyykD-4Hmg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/ZGlzY292ZXJlbmdp/bmVlcmluZy5vcmcv/d3AtY29udGVudC91/cGxvYWRzLzIwMjQv/MDgvMTM2NzVkOGRi/YTZlMDJiZjk0ZDY3/MjdmYWE5MGM1Zjct/ODAweDQ1MC5wbmc" alt="Automotive Engineering student working on vehicle">
+        </div>
+        <div class="course-body">
+          <h3>Automotive Engineering</h3>
+          <p>Hands-on vehicle mechanics, diagnostics, and modern garage tech with industry-standard equipment and workshops.</p>
+          <div class="course-meta">
+            <span>📅 1–2 Years</span>
+            <span>📖 Jan & Sept Intake</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ICT & Computing -->
+      <div class="course-card">
+        <div class="course-thumb" style="background: linear-gradient(135deg, #1a6b3c, #0f4a28);">
+          <img src="https://imgs.search.brave.com/qYuvki4duCP3e82PVtb5tuTrfunjcPqJR0fo2UWTL0w/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/dWNiLmFjLnVrL21l/ZGlhL2kzd2xwYmJv/L2NvbXB1dGluZy1h/bmQtaWN0LWxldmVs/LTMtb2xkLW5hbWUt/c2h1dHRlcnN0b2Nr/XzY2OTIyNjA5My5q/cGc_cnh5PTAuNDUx/NTE0MDA5ODc1Nzkw/NSwwLjUwMTA3ODg1/MzQ0OTc3NDUmd2lk/dGg9MTkyMCZoZWln/aHQ9ODIzJmZvcm1h/dD13ZWJwJnF1YWxp/dHk9ODAmdj0xZGE1/ZjQ0YmViMzdkZTA" alt="ICT students in computer lab">
+        </div>
+        <div class="course-body">
+          <h3>ICT & Computing</h3>
+          <p>Networking, software development, cybersecurity, and digital skills for the modern knowledge economy.</p>
+          <div class="course-meta">
+            <span>📅 1–2 Years</span>
+            <span>📖 Jan & Sept Intake</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Counselling Psychology -->
+      <div class="course-card">
+        <div class="course-thumb" style="background: linear-gradient(135deg, #7c3a8c, #4a1f5c);">
+          <img src="https://imgs.search.brave.com/fGlmSogrCXy0rJuP4GaI_OrdQiMWIO69LSMVNtJsQqo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvODcz/MDA2NDUvdmVjdG9y/L3RoZS1icmFpbi5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/ck4zbjNQTHVzaUJp/MWVZNE1Qd19yY25C/X0lBZlhrVDBIOEpk/eUVSMWRfST0" alt="Counselling session illustration">
+        </div>
+        <div class="course-body">
+          <h3>Counselling Psychology</h3>
+          <p>Professional counselling skills for schools, hospitals, community organisations, and faith-based settings.</p>
+          <div class="course-meta">
+            <span>📅 1–2 Years</span>
+            <span>📖 Jan & Sept Intake</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Hospitality & Tourism -->
+      <div class="course-card">
+        <div class="course-thumb" style="background: linear-gradient(135deg, #c89b2a, #8a6a10);">
+          <img src="https://imgs.search.brave.com/2AVSiOTwjv9qFy-Wr8evadf4NDDzXF07D_xxU5mSrnU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9ldG9u/Y29sbGVnZS5jYS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyNi8w/Mi9XaGF0c0FwcC1J/bWFnZS0yMDI2LTAy/LTE5LWF0LTIuMzgu/MzQtUE0uanBlZw" alt="Hospitality student arranging table setting">
+        </div>
+        <div class="course-body">
+          <h3>Hospitality & Tourism</h3>
+          <p>Hotel management, food production, front office operations, and customer service excellence training.</p>
+          <div class="course-meta">
+            <span>📅 1–2 Years</span>
+            <span>📖 Jan & Sept Intake</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Fashion & Design -->
+      <div class="course-card">
+        <div class="course-thumb" style="background: linear-gradient(135deg, #b5365a, #7a1f3c);">
+          <img src="https://imgs.search.brave.com/drBtrtjmNYQ3NhT-LEAo9nS3yMfkobLpSHksvo0gSO4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI2/NjEyNjI4MS9waG90/by9mYXNoaW9uLWRl/c2lnbmVyLXNrZXRj/aGluZy1jb3N0dW1l/LWRlc2lnbi5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9bDhW/a05DM0xPY2xCVFlh/bDVBZFJ0Z2tPaXJ4/MlZJNE1fY2dTU3p4/bmp0OD0" alt="Fashion designer sketching">
+        </div>
+        <div class="course-body">
+          <h3>Fashion & Design</h3>
+          <p>Garment construction, fashion illustration, textile science, and fashion business for creative entrepreneurs.</p>
+          <div class="course-meta">
+            <span>📅 1–2 Years</span>
+            <span>📖 Jan & Sept Intake</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Extra Departments Card -->
+      <div class="course-card course-card-extra">
+        <div class="course-thumb">
+          <div class="course-thumb-icon">➕</div>
+        </div>
+        <div class="course-body">
+          <h3>+ 4 More Departments</h3>
+          <p>Cosmetology, Metalwork & Welding, Caregiver Training, and Christian Ministry — all with short-course options available.</p>
+          <div class="course-meta">
+            <span>🎓 Explore all programmes</span>
+          </div>
+          <a href="#" class="explore-link">View complete list →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
